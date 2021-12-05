@@ -60,8 +60,9 @@ defmodule Mix.Tasks.Eggnog do
   end
 
   defmodule Submit do
-    def run([]) do
-
+    def run([year, day, level, solution]) do
+      {response, 0} = System.cmd("nog", ["-y", "#{year}", "-d", "#{day}", "-l", "#{level}", "-s", "#{solution}"])
+      IO.puts response
     end
   end
 end
